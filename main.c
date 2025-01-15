@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "contact.h"
-#include "populate.h"
 
 int main() {
     AddressBook addressBook;

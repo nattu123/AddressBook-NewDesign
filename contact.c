@@ -5,8 +5,6 @@
 #include <ctype.h>
 #include "contact.h"
 #include "file.h"
-#include "populate.h"
-
 //////////////////////////*                    PRINT FUNCTIONS                       *//////////////////////////////////////////////
 
 
