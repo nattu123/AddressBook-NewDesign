@@ -80,16 +80,27 @@ void listContacts(AddressBook *addressBook, int sortCriteria)
     switch(sortCriteria)
     {
         case 1: sortname(addressBook);
+                for(int i =0;i<addressBook->contactCount;i++)
+                {
+                    print_contact(i,addressBook);
+                }
                 break;
         case 2: sortphone(addressBook);
+                for(int i =0;i<addressBook->contactCount;i++)
+                {
+                    print_contact(i,addressBook);
+                }
                 break;
         case 3: sortmail(addressBook);
+                for(int i =0;i<addressBook->contactCount;i++)
+                {
+                    print_contact(i,addressBook);
+                }
+                break;
+        default:
+                printf("\nenter a valid choice\n");
                 break;
         
-    }
-    for(int i =0;i<addressBook->contactCount;i++)
-    {
-        print_contact(i,addressBook);
     }
 }
 
@@ -287,7 +298,8 @@ int searchContact(AddressBook *addressBook)
     printf("Search by : \n");
     label1 :
     printf("1.Name\n2.Phone Number\n3.Email id\nEnter your choice : ");
-    int choice; 
+    int choice;
+    while(getchar()!='\n');
     scanf("%d",&choice);
     char str[50];
     int index;

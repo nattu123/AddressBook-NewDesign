@@ -3,13 +3,14 @@
 #include "populate.h"
 
 int main() {
-    int choice;
     AddressBook addressBook;
     //addressBook.contactCount = 0;
     //populateAddressBook(&addressBook);
+    int choice;
     initialize(&addressBook); // Initialize the address book
 
     do {
+        choice = 0;
         printf("\nAddress Book Menu:\n");
         printf("1. Create contact\n");
         printf("2. Search contact\n");
@@ -19,6 +20,7 @@ int main() {
         printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+        while (getchar()!='\n');
         
         switch (choice) {
             case 1:
@@ -41,6 +43,7 @@ int main() {
                 printf("Enter your choice: ");
                 int sortChoice;
                 scanf("%d", &sortChoice);
+                while (getchar()!='\n');
                 listContacts(&addressBook, sortChoice);
                 break;
             case 6:
