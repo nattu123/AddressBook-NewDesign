@@ -8,12 +8,9 @@ void saveContactsToFile(AddressBook *addressBook) {
   puts("opened file");
   for(int i=0;i<addressBook->contactCount;i++)
   {
-    printf("%s,%s,%s\n",addressBook->contacts[i].name,addressBook->contacts[i].phone,addressBook->contacts[i].email);
     fprintf(f1ptr,"%s,%s,%s\n",addressBook->contacts[i].name,addressBook->contacts[i].phone,addressBook->contacts[i].email);
-    puts("saved 1 contact");
   }
   fclose(f1ptr);
-  puts("file closed");
   exit(0);
 }
 
