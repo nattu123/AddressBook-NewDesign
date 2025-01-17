@@ -150,6 +150,22 @@ return len==10?0:1;
 
 }
 
+int unique_name(char *name,AddressBook *addressBook)
+{
+    int count = addressBook->contactCount;
+    int n=0;
+    for(int i=0;i<count;i++)
+    {
+        if(strcmp(name,addressBook->contacts[i].name)==0)
+        {
+            n++; 
+            if(n==2)return 1;
+        }
+    }
+    return 0;
+
+}
+
 int validate_name(char *name)
 {
     while(*name)
@@ -297,8 +313,8 @@ int searchContact(AddressBook *addressBook)
     label1 :
     printf("1.Name\n2.Phone Number\n3.Email id\nEnter your choice : ");
     int choice;
-    while(getchar()!='\n');
     scanf("%d",&choice);
+    while(getchar()!='\n');
     char str[50];
     int index;
     switch(choice)
@@ -311,6 +327,44 @@ int searchContact(AddressBook *addressBook)
                     index = search_name(str,addressBook);
                 }
                 while(index==-1);
+                if(unique_name(str,addressBook))
+                {
+                    int choice1; 
+                    printf("\n Multiple contacts with same name exists select \"1\" for searching by Phone number or \"2\" for searching by Email\n");
+                    do{
+                        printf("\n enter the choice : ");
+                        scanf("%d",&choice1);
+                        while (getchar()!='\n');
+                        
+                        switch (choice)
+                        {
+                        case 1: 
+                            do
+                            {
+                                printf("\nenter the phone number :\n");
+                                scanf(" %[^\n]",str);  
+                                index = search_number(str,addressBook);
+                            }while(index==-1);
+                            break;
+                        case 2: 
+                            do
+                            {
+
+                                printf("\nenter the mail id :\n");
+                                scanf(" %[^\n]",str);  
+                                index = search_mail(str,addressBook);
+                            }while(index==-1);
+                            break;
+
+                        default:
+                            printf("\nenter a valid choice\n");
+                            choice1 = -1; 
+                            break;
+                        }
+
+                    }
+                    while(choice1==-1);
+                }
                 break;
         case 2 : 
                 do

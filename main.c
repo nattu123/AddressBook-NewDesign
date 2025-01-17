@@ -3,8 +3,6 @@
 
 int main() {
     AddressBook addressBook;
-    //addressBook.contactCount = 0;
-    //populateAddressBook(&addressBook);
     int choice;
     initialize(&addressBook); // Initialize the address book
 
